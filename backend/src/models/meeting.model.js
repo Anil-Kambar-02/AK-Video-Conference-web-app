@@ -1,0 +1,22 @@
+import mongoose, { Schema } from "mongoose";
+import { type } from "node:os";
+
+const meetingSchema = new Schema(
+  {
+    user_id: {
+      type: String,
+    },
+    meetingCode: {
+      type: String,
+      required: true,
+    },
+    date: {
+      type: Date,
+      default: Date.now,
+      required: true,
+    },
+  },
+  { timestamps: true },
+);
+
+export const Meeting = mongoose.model("Meeting", meetingSchema);
